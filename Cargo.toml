@@ -1,0 +1,27 @@
+[package]
+name = "uniteach"
+version = "0.1.0"
+edition = "2021"
+description = "Stealth overlay exam assistant"
+
+[dependencies]
+eframe = { version = "0.30", default-features = false, features = ["default_fonts", "glow"] }
+egui = "0.30"
+xcap = "0.0.14"
+image = { version = "0.25", default-features = false, features = ["png"] }
+base64 = "0.22"
+reqwest = { version = "0.12", features = ["json"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "time", "sync"] }
+windows = { version = "0.58", features = [
+    "Win32_Foundation",
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_UI_Input_KeyboardAndMouse",
+]  }
+chrono = "0.4"
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
